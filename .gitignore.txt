@@ -1,0 +1,3 @@
+.ipynb_checkpoints/
+venv_py39/
+venv/
