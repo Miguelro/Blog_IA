@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introducción &#8212; Optimizacion con Python</title>
+    <title>Introducción &#8212; Trabajando con scikit learn</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Regresión Softmax." href="Softmax.html" />
+    <link rel="next" title="1. Algoritmo Neareast Neighbors (KNN)" href="supervisados/Neareast_Neighbors.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -91,7 +91,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <h1 class="site-logo" id="site-title">Optimizacion con Python</h1>
+      <h1 class="site-logo" id="site-title">Trabajando con scikit learn</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -114,13 +114,101 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Softmax.html">
-   1. Regresión Softmax
+  <a class="reference internal" href="supervisados/Neareast_Neighbors.html">
+   1. Método Neareast Neighbors
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="ensembles.html">
-   2. Métodos ensembles
+  <a class="reference internal" href="supervisados/supportVectorMachine.html">
+   2. Support Vector Machines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervisados/RegresionLogistica/RegresionLogisticaEjemplo.html">
+   3. Regresión Logística
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervisados/Softmax.html">
+   4. Regresión Softmax
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervisados/decisiontree/decisiontree.html">
+   5. Árboles de decisión (Decision tree)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervisados/multiclass.html">
+   6. Predicción con multiclases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervisados/ensembles.html">
+   7. Métodos ensembles
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Apredizaje NO supervisado
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="nosupervisados/preliminares.html">
+   8. Conceptos preliminares
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Otras herramientas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="otros/pipelines.html">
+   9. Pipelines o canalizaciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="otros/Regularizacion.html">
+   10. Regularización de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="otros/ValidacionModelos.html">
+   11. Validación de modelos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="otros/MedidasBondadAjuste.html">
+   12. Medias de Bonda del Ajuste
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Índice de términos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   13. Índice de términos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bibliografía
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="otros/bibliografia.html">
+   14. Bibliografia
   </a>
  </li>
 </ul>
@@ -259,8 +347,22 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
 <h1>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">#</a></h1>
-<p>Aquí iría la introducción del libro o trabajp</p>
-<p>Iría escrito en formato mardaown</p>
+<p>Bienvenidos a mi blog.</p>
+<p>En este espacio compartiré con vosotros una serie implementaciones de algoritmos en Python, tratando de mantener un equilibrio entre la parte teórica y práctica, de forma que el lector pueda estudiar los métodos en profundidad, y usarlo de referencia para futuros proyectos.</p>
+<p>La gran diferencia entre la programación tradicional y las técnicas de Machine Learning, reside en que en campo del Machine Learning las reglas son inferidas por un algoritmo a partir de datos históricos, y no son programados explicitamente por el programador.</p>
+<p><img alt="Difference-between-Traditional-Programming-and-Machine-Learning-3.png" src="_images/Difference-between-Traditional-Programming-and-Machine-Learning-3.png" /></p>
+<p>Estudiaremos en profundidad algoritmos supervisados como no supervisados. Recordad, que dentro de la familia del machine learning podemos dividir los algoritmos en tres familias:</p>
+<p><img alt="ML_Types.png" src="_images/ML_Types.png" /></p>
+<p>También inluiremos otros recursos claves para el correcto desempeño de la labor del analista o científico de datos, como pueden ser los métodos de regularización de los datos o los métodos para la validación de los modelos, entre otros.</p>
+<p>Espero que os sea de utilidad.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -292,10 +394,10 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="Softmax.html" title="next page">
+    <a class='right-next' id="next-link" href="supervisados/Neareast_Neighbors.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Regresión Softmax.</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Algoritmo Neareast Neighbors (KNN)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
